@@ -3,7 +3,7 @@ from threading import Thread
 
 threadc = 250
 
-usernames = open('usernames.txt','r').read().splitlines()
+usernames = open('usernames.txt','r',errors='ignore').read().splitlines()
 total = len(usernames)
 
 done = 0
@@ -32,7 +32,7 @@ while 1:
     ctypes.windll.kernel32.SetConsoleTitleW(f'Last Online Scraper | Done: {finished}/{total}')
     if finished == total: break
 
-with open('lastonline.txt','w') as f:
+with open('lastonline.txt','w',errors='ignore')) as f:
     f.writelines(output)
 
 input('Finished.')
